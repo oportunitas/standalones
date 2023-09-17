@@ -5,7 +5,7 @@
  * 
  * Oportunitas (Taib Izzat Samawi)
  *
- * GNU C++ 20 11.2.0 (64bit, winlibs)
+ * via GNU C++ 20 11.2.0 (64bit, winlibs)
  * 17/09/2023
 **/
 

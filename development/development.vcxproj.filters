@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-choose_the_cards.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-kenjeran_crossroads.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-help.c">
+    <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-8_puzzles_bfs_solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
