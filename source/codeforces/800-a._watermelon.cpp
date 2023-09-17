@@ -10,6 +10,7 @@
 **/
 
 #include <bits/stdc++.h>
+
 #define lli int64_t
 #define str string
 #define dbl double
@@ -17,6 +18,7 @@
 #define spc " "
 #define tam "\t"
 #define INIT_CODE ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+
 using namespace std;
 
 int main() {
