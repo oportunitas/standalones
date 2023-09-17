@@ -73,11 +73,21 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
             }
         );
 
-        while (front_pos->first.first == frontiers.front().vertex) {
-            if (visited[front_pos->first.second]) {
-                if (frontiers)
-            }
-            if (!visited[front_pos->first.second]) {
+        while (front_pos->first.first == frontiers.front().vertex) { 
+            auto pos = find_if(
+                frontiers.begin(),
+                frontiers.end(),
+                [&front_pos](Frontier& element) {
+                    return element.vertex == front_pos->first.second;
+                }
+            );
+
+            if (pos != frontiers.end()) {
+                if (pos->dist > (frontiers.front().dist + front_pos->second)) {
+                    pos->dist = (frontiers.front().dist + front_pos->second);
+                    pos->via = ms<Frontier>(frontiers.front());
+                }
+            } else {
                 frontiers.push_back({
                     frontiers.front().dist + front_pos->second,
                     front_pos->first.second,
