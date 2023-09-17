@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-choose_the_cards.c">
+    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-help.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
