@@ -18,5 +18,14 @@
     <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-8_puzzles_bfs_solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\if_its-graph_theory\if_its-gt-dijkstra_pathfinding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-zoro_wants_to_sleep_again.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-simple_hill_climbing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
