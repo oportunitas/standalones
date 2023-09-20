@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\if_its-basics_of_programming\toki_exercises\if_its-bop-te-faktor_bilangan.c" />
+    <ClCompile Include="..\source\codeforces\900-a._even_odds.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
