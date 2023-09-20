@@ -18,5 +18,8 @@
     <ClCompile Include="..\source\codeforces\900-a._even_odds.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\if_its-linear_algebra\if_its-la-elementary_row_operations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

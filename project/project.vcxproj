@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\codeforces\900-a._even_odds.cpp" />
+    <ClCompile Include="..\source\if_its-linear_algebra\if_its-la-elementary_row_operations.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
