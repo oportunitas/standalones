@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\codeforces\900-a._even_odds.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\if_its-linear_algebra\if_its-la-elementary_row_operations.cpp">
+    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-2023-bof_lw1-addicted_to_10_adics.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
