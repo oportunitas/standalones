@@ -9,7 +9,7 @@ public class Q13ComputerAccount {
 	 * parameters to the class' constructor).
 	 */
   
-	// Properties and or Fields
+	// Fields
 	private String realName;
 	private String userName;
 	private String password;
