@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-2023-bof_lw1-addicted_to_10_adics.c" />
+    <None Include="..\source\if_its-object_oriented_programming\quiz_1\Q13ComputerAccount.java" />
+    <None Include="..\source\if_its-object_oriented_programming\quiz_1\Q13ComputerAccountTest.java" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

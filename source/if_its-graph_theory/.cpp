@@ -61,11 +61,11 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
             << "<---------------------------------" 
             << "--------------------------------->"
             << endl
-            << "Exhausting vertex {" << frontiers.front().vertex << "}"
+            << "Exhausting vertex {" << (char)(frontiers.front().vertex + 64) << "}"
             << endl << endl;
         if (frontiers.front().vertex == to) {
             cout
-                << "But wait! vertex {" << frontiers.front().vertex << "}"
+                << "But wait! vertex {" << (char)(frontiers.front().vertex + 64) << "}"
                 << " is the destination!" << endl;
 
             dq<Frontier> shortest_path;
@@ -80,8 +80,8 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
             for (lli k = 0; k < shortest_path.size() - 1; ++k) {
                 cout
                     << tab << k + 1
-                    << ". Go from vertex {" << shortest_path[k].vertex
-                    << "} to vertex {" << shortest_path[k + 1].vertex
+                    << ". Go from vertex {" << (char)(shortest_path[k].vertex + 64)
+                    << "} to vertex {" << (char)(shortest_path[k + 1].vertex + 64)
                     << "}," << endl << tab << "   this will take "
                     << shortest_path[k + 1].dist - shortest_path[k].dist
                     << " unit(s) of distance." << endl << endl;
@@ -89,8 +89,8 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
             cout
                 << "And there you have it!" << endl
                 << "that is the shortest path between "
-                << "vertex {" << shortest_path.front().vertex << "} and vertex {"
-                << shortest_path.back().vertex << "}," << endl
+                << "vertex {" << (char)(shortest_path.front().vertex + 64) << "} and vertex {"
+                << (char)(shortest_path.back().vertex + 64) << "}," << endl
                 << "which took only " << shortest_path.back().dist
                 << " units of distance" << endl << endl << endl;
             break;
@@ -106,8 +106,8 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
         while (edges_pos->first.first == frontiers.front().vertex) {
             cout
                 << "Checking connection between vertex {"
-                << edges_pos->first.first << "} and vertex {"
-                << edges_pos->first.second << "}" << endl;
+                << (char)(edges_pos->first.first + 64) << "} and vertex {"
+                << (char)(edges_pos->first.second + 64) << "}" << endl;
 
             if (!visited[edges_pos->first.second]) {
                 auto pos = find_if(
@@ -127,17 +127,17 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
 
                     cout
                         << tab << "established new connection between vertex {"
-                        << edges_pos->first.first << "} and vertex {"
-                        << edges_pos->first.second << "}" << endl << endl;
+                        << (char)(edges_pos->first.first + 64) << "} and vertex {"
+                        << (char)(edges_pos->first.second + 64)<< "}" << endl << endl;
                 }
                 else if (edges_pos->second + frontiers.front().dist < pos->dist) {
                     pos->dist = edges_pos->second + frontiers.front().dist;
                     pos->via = ms<Frontier>(frontiers.front());
 
                     cout
-                        << tab << "changed vertex {" << edges_pos->first.second
+                        << tab << "changed vertex {" << (char)(edges_pos->first.second + 64)
                         << "} to now connect to vertex {"
-                        << edges_pos->first.first << endl << endl;
+                        << (char)(edges_pos->first.first + 64) << endl << endl;
                 }
             } else {
                 cout
@@ -156,7 +156,7 @@ void dijkstraFind(vec<pair<pair<lli, lli>, lli>> graph, lli from, lli to) {
         cout << "| front | dist  |" << endl;
         for (auto it : frontiers) {
             cout 
-                << "|  " << it.vertex << tab 
+                << "|  " << (char)(it.vertex + 64) << tab 
                 << "|  " << it.dist << tab 
                 << "|  " << endl;
         } cout << "-----------------" << endl << endl;
@@ -183,7 +183,7 @@ int main() {
     }
 
     sort(graph->begin(), graph->end(), sortVertexThenWeight);
-    dijkstraFind(*graph, 1, 13);
+    dijkstraFind(*graph, 1, 8);
 
     cout
         << "<---------------------------------"
@@ -225,4 +225,6 @@ int main() {
     12 13 3
     0 0 0
 */
+
+
 

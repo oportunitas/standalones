@@ -20,15 +20,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\source\codeforces\0-template.cpp" />
+    <ClCompile Include="..\source\codeforces\800-a._lucky.cpp" />
     <ClCompile Include="..\source\codeforces\800-a._watermelon.cpp" />
     <ClCompile Include="..\source\codeforces\900-a._even_odds.cpp" />
+    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-2023-bof_lw1-addicted_to_10_adics.c" />
     <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_1\if_its-bof_lw1-zoro_wants_to_sleep_again.c" />
+    <ClCompile Include="..\source\if_its-basics_of_programming\lab_work_2\if_its-bof_lw1-zimbabwe_millionaire.c" />
     <ClCompile Include="..\source\if_its-basics_of_programming\toki_exercises\if_its-bop-te-faktor_bilangan.c" />
     <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-8_puzzles_bfs_solver.cpp" />
+    <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-8_queens_heuristic_search.cpp" />
     <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-simple_hill_climbing.cpp" />
     <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\it_its-coai-8_puzzles_a_star.cpp" />
+    <ClCompile Include="..\source\if_its-data_structures\if_its-ds-data_structures_compendium_and_functions_encyclopedia.cpp" />
+    <ClCompile Include="..\source\if_its-graph_theory\if_its-gt-bellman_ford_mst_finder.cpp" />
     <ClCompile Include="..\source\if_its-graph_theory\if_its-gt-dijkstra_pathfinding.cpp" />
     <ClCompile Include="..\source\if_its-linear_algebra\if_its-la-elementary_row_operations.cpp" />
+    <ClCompile Include="..\source\playgrounds.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
