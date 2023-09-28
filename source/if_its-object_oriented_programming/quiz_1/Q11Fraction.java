@@ -29,6 +29,7 @@ public class Q11Fraction {
 			return getGCD(n2, (n1 % n2));
 		}
 	}
+	
 	public static int[] getSum(int e1, int d1, int e2, int d2) {
 		// Get sum of 2 fractions using pre-defined rules, with gcd division
 		int es = (e1 * d2) + (e2 * d1);
