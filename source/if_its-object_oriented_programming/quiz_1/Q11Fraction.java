@@ -1,5 +1,4 @@
 // File: Q11Fraction.java
-
 public class Q11Fraction {
 	// Getters
 	private static int getMax(int n1, int n2) {
@@ -30,7 +29,7 @@ public class Q11Fraction {
 			return getGCD(n2, (n1 % n2));
 		}
 	}
-	private static int[] getSum(int e1, int d1, int e2, int d2) {
+	public static int[] getSum(int e1, int d1, int e2, int d2) {
 		// Get sum of 2 fractions using pre-defined rules, with gcd division
 		int es = (e1 * d2) + (e2 * d1);
 		int ds = d1 * d2;
@@ -44,7 +43,7 @@ public class Q11Fraction {
 		int[] res = {es, ds};
 		return res;
 	}
-	private static int[] getProduct(int e1, int d1, int e2, int d2) {
+	public static int[] getProduct(int e1, int d1, int e2, int d2) {
 		// Get product of 2 fractions using pre-defined rules, with gcd division
 		int ep = e1 * e2;
 		int dp = d1 * d2;

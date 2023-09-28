@@ -1,7 +1,5 @@
 // File: Q13ComputerAccountTest.java
-
 import java.util.Scanner;
-
 public class Q13ComputerAccountTest {
 	/**
 	 * This class is used to test all existing properties,
