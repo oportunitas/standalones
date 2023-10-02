@@ -1,13 +1,16 @@
 #include <bits/stdc++.h>
 #include <random>
 #include <unordered_map>
+#include "matplotlibcpp.h"
+
+namespace plt = matplotlibcpp;
 
 // Global randomizer macros
 std::random_device rd;
 std::mt19937 gen(rd());
 
 void scanGraph(
-    std::shared_ptr<std::vector<std::vector<int64_t>>> graph,
+    std::vector<std::vector<int64_t>>* graph,
     std::string filename
 ) {
     std::ifstream file(filename);
@@ -31,8 +34,8 @@ void scanGraph(
 }
 
 void getDists(
-    std::shared_ptr<std::vector<std::vector<int64_t>>> graph,
-    std::shared_ptr<std::unordered_map<int64_t, std::unordered_map<int64_t, int64_t>>> edges
+    std::vector<std::vector<int64_t>>* graph,
+    std::unordered_map<int64_t, std::unordered_map<int64_t, double>>* edges
 ) {
     int64_t numof_vertices = graph->size();
     for (int64_t i = 1; i <= 500; ++i) {
@@ -53,13 +56,15 @@ void getDists(
 }
 
 void getInitialPopulation(
-    std::shared_ptr<std::vector<std::vector<int64_t>>> batch,
-    std::shared_ptr<int64_t> batch_size
+    std::vector<std::vector<int64_t>>* batch,
+    int64_t* batch_size
 ) {
     // Create initial chromosome (path ascending from 1 to num of vertices)
-    std::vector<int64_t> init_chromosome(1005);
+    std::vector<int64_t> init_chromosome;
+    init_chromosome.push_back({});
     for (int64_t i = 1; i <= 1000; ++i) {
         //std::cout << "setting chromosome " << i << "\n";
+        init_chromosome.push_back({});
         init_chromosome[i] = i;
     }
 
@@ -70,10 +75,10 @@ void getInitialPopulation(
 }
 
 double evaluateFitness(
-    std::shared_ptr<std::vector<int64_t>> path,
-    std::shared_ptr<std::unordered_map<int64_t, std::unordered_map<int64_t, int64_t>>> edges
+    std::vector<int64_t>* path,
+    std::unordered_map<int64_t, std::unordered_map<int64_t, double>>* edges
 ) {
-    int64_t total_distance = 0;
+    double total_distance = 0;
     int64_t numof_vertices = path->size();
     for (int64_t i = 0; i < numof_vertices - 1; ++i) {
         total_distance += (*edges)[(*path)[i]][(*path)[i + 1]];
@@ -83,11 +88,11 @@ double evaluateFitness(
 }
 
 void getParents(
-    std::shared_ptr<std::vector<std::vector<int64_t>>> parents,
-    std::shared_ptr<std::vector<std::vector<int64_t>>> batch,
-    std::shared_ptr<std::unordered_map<int64_t, std::unordered_map<int64_t, int64_t>>> edges,
-    std::shared_ptr<std::vector<std::vector<int64_t>>> graph,
-    std::shared_ptr<int64_t> tournament_size
+    std::vector<std::vector<int64_t>>* parents,
+    std::vector<std::vector<int64_t>>* batch,
+    std::unordered_map<int64_t, std::unordered_map<int64_t, double>>* edges,
+    std::vector<std::vector<int64_t>>* graph,
+    int64_t* tournament_size
 ) {
     for (int64_t i = 0; i < 2; ++i) {
         std::vector<std::vector<int64_t>> tournament = *batch;
@@ -99,9 +104,9 @@ void getParents(
             [&](std::vector<int64_t>& path1, std::vector<int64_t>& path2) {
                 return
                     evaluateFitness(
-                        std::make_shared<std::vector<int64_t>>(path1), edges
+                        &path1, edges
                     ) < evaluateFitness(
-                        std::make_shared<std::vector<int64_t>>(path2), edges
+                        &path2, edges
                     )
                 ;
             }
@@ -112,9 +117,9 @@ void getParents(
 }
 
 void crossOver(
-    std::shared_ptr<std::vector<int64_t>> parent1,
-    std::shared_ptr<std::vector<int64_t>> parent2,
-    std::shared_ptr<std::vector<int64_t>> child
+    std::vector<int64_t>* parent1,
+    std::vector<int64_t>* parent2,
+    std::vector<int64_t>* child
 ) {
     //std::cout << "entering crossover \n";
     std::uniform_int_distribution<int64_t> dist(1, parent1->size() - 1);
@@ -124,7 +129,7 @@ void crossOver(
         child->push_back((*parent1)[i]);
     }
 
-    for (int64_t i = 0; i < parent2->size(); ++i) {
+    for (int64_t i = 0; i < (int64_t)parent2->size(); ++i) {
         if (std::find(child->begin(), child->end(), (*parent2)[i]) == child->end()) {
             child->push_back((*parent2)[i]);
         }
@@ -132,7 +137,7 @@ void crossOver(
 }
 
 void mutate(
-    std::shared_ptr<std::vector<int64_t>> path
+    std::vector<int64_t>* path
 ) {
     // Create a random index on chromosome
     std::uniform_int_distribution<int64_t> dist(0, (int64_t)(path->size() - 1));
@@ -149,21 +154,19 @@ void mutate(
 }
 
 void geneticGetTspMinimum(
-    std::shared_ptr<std::vector<int64_t>> best_path,
-    std::shared_ptr<double> best_distance,
-    std::shared_ptr<std::vector<double>> best_distance_history,
-    std::shared_ptr<std::unordered_map<int64_t, std::unordered_map<int64_t, int64_t>>> edges,
-    std::shared_ptr<std::vector<std::vector<int64_t>>> graph,
-    std::shared_ptr<double> mutation_rate,
-    std::shared_ptr<int64_t> numof_epochs,
-    std::shared_ptr<int64_t> batch_size,
-    std::shared_ptr<int64_t> tournament_size
+    std::vector<int64_t>* best_path,
+    double* best_distance,
+    std::vector<double>* best_distance_history,
+    std::unordered_map<int64_t, std::unordered_map<int64_t, double>>* edges,
+    std::vector<std::vector<int64_t>>* graph,
+    double* mutation_rate,
+    int64_t* numof_epochs,
+    int64_t* batch_size,
+    int64_t* tournament_size
 ) {
     // Declare variables
-    std::shared_ptr<int64_t> numof_vertices =
-        std::make_shared<int64_t>();
-    std::shared_ptr<std::vector<std::vector<int64_t>>> batch =
-        std::make_shared<std::vector<std::vector<int64_t>>>();
+    int64_t* numof_vertices = new int64_t();
+    std::vector<std::vector<int64_t>>* batch = new std::vector<std::vector<int64_t>>();
 
     // Generate the initial population
     getInitialPopulation(
@@ -174,8 +177,8 @@ void geneticGetTspMinimum(
     for (int64_t i = 0; i < *numof_epochs; ++i) {
         std::vector<std::vector<int64_t>> new_batch;
         for (int64_t j = 0; j < (*batch_size / 2); ++j) {
-            std::shared_ptr<std::vector<std::vector<int64_t>>> parents =
-                std::make_shared<std::vector<std::vector<int64_t>>>();
+            std::vector<std::vector<int64_t>>* parents = 
+                new std::vector<std::vector<int64_t>>();
             //std::cout << "testing\n";
             getParents(
                 parents,
@@ -190,20 +193,18 @@ void geneticGetTspMinimum(
             double random_val = dist(gen);
 
             // Declare Children
-            std::shared_ptr<std::vector<int64_t>> child1 =
-                std::make_shared<std::vector<int64_t>>();
-            std::shared_ptr<std::vector<int64_t>> child2 =
-                std::make_shared<std::vector<int64_t>>();
+            std::vector<int64_t>* child1 = new std::vector<int64_t>();
+            std::vector<int64_t>* child2 = new std::vector<int64_t>();
 
             crossOver(
-                std::make_shared<std::vector<int64_t>>(parents->front()),
-                std::make_shared<std::vector<int64_t>>(parents->back()),
+                &parents->front(),
+                &parents->back(),
                 child1
             );
 
             crossOver(
-                std::make_shared<std::vector<int64_t>>(parents->front()),
-                std::make_shared<std::vector<int64_t>>(parents->back()),
+                &parents->front(),
+                &parents->back(),
                 child2
             );
 
@@ -221,9 +222,9 @@ void geneticGetTspMinimum(
             [&](std::vector<int64_t>& path1, std::vector<int64_t>& path2) {
                 return
                     evaluateFitness(
-                        std::make_shared<std::vector<int64_t>>(path1), edges
+                        &path1, edges
                     ) < evaluateFitness(
-                        std::make_shared<std::vector<int64_t>>(path2), edges
+                        &path2, edges
                     )
                 ;
             }
@@ -235,33 +236,24 @@ void geneticGetTspMinimum(
         std::cout << "Epoch " << i + 1 << " \t /" << *numof_epochs << "\t: " << *best_distance << "\n";
     }
 
-    //auto final_best_path_it = std::min_element(batch->begin(), batch->end(), compareFitness);
-    //*best_path = *final_best_path_it;
-    //*best_distance = evaluateFitness(best_path, graph, edges);
+    auto final_best_path_it = std::min_element(batch->begin(), batch->end(), compareFitness);
+    *best_path = *final_best_path_it;
+    *best_distance = evaluateFitness(best_path, graph, edges);
 }
 
 int main() {
     std::cout << "Starting Genetic Algorithm\n";
     std::cout << "This code was made by Taib Izzat Samawi\n";
     // Declare Variables
-    std::shared_ptr<std::vector<int64_t>> best_path =
-        std::make_shared<std::vector<int64_t>>();
-    std::shared_ptr<double> best_distance =
-        std::make_shared<double>();
-    std::shared_ptr<std::vector<double>> best_distance_history =
-        std::make_shared<std::vector<double>>();
-    std::shared_ptr<std::unordered_map<int64_t, std::unordered_map<int64_t, int64_t>>> edges =
-        std::make_shared<std::unordered_map<int64_t, std::unordered_map<int64_t, int64_t>>>();
-    std::shared_ptr<std::vector<std::vector<int64_t>>> graph =
-        std::make_shared<std::vector<std::vector<int64_t>>>();
-    std::shared_ptr<double> mutation_rate =
-        std::make_shared<double>();
-    std::shared_ptr<int64_t> numof_epochs =
-        std::make_shared<int64_t>();
-    std::shared_ptr<int64_t> batch_size =
-        std::make_shared<int64_t>();
-    std::shared_ptr<int64_t> tournament_size =
-        std::make_shared<int64_t>();
+    std::vector<int64_t>* best_path = new std::vector<int64_t>();
+    double* best_distance = new double();
+    std::vector<double>* best_distance_history = new std::vector<double>();
+    std::unordered_map<int64_t, std::unordered_map<int64_t, double>>* edges = new std::unordered_map<int64_t, std::unordered_map<int64_t, double>>();
+    std::vector<std::vector<int64_t>>* graph = new std::vector<std::vector<int64_t>>();
+    double* mutation_rate = new double();
+    int64_t* numof_epochs = new int64_t();
+    int64_t* batch_size = new int64_t();
+    int64_t* tournament_size = new int64_t();
 
     // Set Variable Values
     *mutation_rate = 1.0;
@@ -299,4 +291,7 @@ int main() {
         batch_size,
         tournament_size
     );
+
+    plt::plot(*best_distance_history);
+    plt::show();
 }
