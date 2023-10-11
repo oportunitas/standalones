@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\if_its-concepts_of_artificial_intelligence\if_its-coai-tsp_via_ga.cpp" />
+    <ClCompile Include="..\..\..\ITS\Courses\Semester 3\Concepts of Artificial Intelligence\Traveling Salesman Problem with Genetic Algorithm\if_its-coai-tsp_via_ga.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\source\if_its-concepts_of_artificial_intelligence\cities1000.txt" />
+    <ClInclude Include="..\..\..\ITS\Courses\Semester 3\Concepts of Artificial Intelligence\Traveling Salesman Problem with Genetic Algorithm\matplotlib-cpp-master\matplotlib-cpp-master\matplotlibcpp.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -66,5 +66,8 @@
     <ClCompile Include="..\source\playgrounds.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\algorithms\string_reverse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

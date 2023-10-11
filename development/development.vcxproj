@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\algorithms\string_reverse.c" />
     <ClCompile Include="..\source\codeforces\0-template.cpp" />
     <ClCompile Include="..\source\codeforces\800-a._lucky.cpp" />
     <ClCompile Include="..\source\codeforces\800-a._watermelon.cpp" />
