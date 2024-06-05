@@ -1,13 +1,13 @@
 /**
- * IF ITS Basics of Programming
- * Lab Work 2
- * Zimbabwe Millionaire
- *
- * Oportunitas (Taib Izzat Samawi)
- *
- * via GNU C11
- * 25/09/2023
+* ╭╴zimbabwe_millionaire_solution.c
+* | GNU C11
+* ╰--> solution for ITS IF184101 labwork 2 problem: 'Zimbabwe Millionaire'
+* ╭╴created    : circa Q3 2022
+* | remastered : 25 Sep 2023
+* | last edit  : 5 Jun 2024
+* ╰--> @oportunitas
 **/
+
 
 #include <stdio.h>
 #define lli signed long long int

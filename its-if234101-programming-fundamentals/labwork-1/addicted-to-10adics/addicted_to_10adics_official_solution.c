@@ -1,12 +1,11 @@
 /**
- * IF ITS Basics of Programming 2023
- * Lab Work 1
- * Addicted to 10-Adics (Official Problemsetter Solution)
- *
- * Oportunitas (Taib Izzat Samawi)
- *
- * via GNU C11
- * 17/09/2023
+* ╭╴addicted_to_10adics_official_solution.c
+* | GNU C11
+* ╰--> official solution for ITS IF234101 labwork 1 problem: 
+*      'Addicted to 10-Adics'
+* ╭╴created    : 17 Sep 2023
+* | last edit  : 5 Jun 2024
+* ╰--> @oportunitas
 **/
 
 #include <stdio.h>

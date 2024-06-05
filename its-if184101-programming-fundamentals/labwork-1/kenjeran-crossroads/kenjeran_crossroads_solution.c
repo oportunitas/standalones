@@ -1,13 +1,13 @@
 /**
- * IF ITS Basics of Programming
- * Lab Work 1
- * Kenjeran Crossroads
- *
- * Oportunitas (Taib Izzat Samawi)
- *
- * via GNU C11
- * 17/09/2023
+* ╭╴kenjeran_crossroads_solution.c
+* | GNU C11
+* ╰--> solution for ITS IF184101 labwork 1 problem: 'Kenjeran Crossroads'
+* ╭╴created    : circa Q3 2022
+* | remastered : 17 Sep 2023
+* | last edit  : 5 Jun 2024
+* ╰--> @oportunitas
 **/
+
 
 #include <assert.h>
 #include <complex.h>
