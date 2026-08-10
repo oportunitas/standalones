@@ -1,4 +1,11 @@
 /*
+*	OnlineGDB Archive
+*
+*	Created			: 2/12/2023, 11:34:28 PM
+*	Last Modified	: 2/20/2023, 3:08:55 PM
+*/
+
+/*
 Program Name:
     barisan_intip_c_version
     
@@ -11,8 +18,6 @@ Using:
 On:
     12/02/2023
 */
-
-// 2/12/2023, 11:34:28 PM
 
 #include <stdio.h>
 #include <string.h>
