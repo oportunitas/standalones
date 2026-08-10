@@ -1,4 +1,11 @@
 /*
+*	OnlineGDB Archive
+*
+*	Created			: 10/28/2022, 3:42:18 PM
+*	Last Modified	: 10/28/2022, 4:48:31 PM
+*/
+
+/*
     Problem Name
         Mix 'em Up (Acak)
     
@@ -11,7 +18,6 @@
     On
         October 28, 2022
 */
-// 10/28/2022, 3:42:18 PM
 
 #include <stdio.h>
 

@@ -1,4 +1,11 @@
 /*
+*	OnlineGDB Archive
+*
+*	Created			: 10/27/2022, 10:08:18 AM
+*	Last Modified	: 10/28/2022, 4:41:02 PM
+*/
+
+/*
     Program Name
         Handkerchief Pattern
     
@@ -17,8 +24,6 @@
     As
         handkerchiefPattern.c
 */
-
-// 10/27/2022, 10:08:18 AM
 
 #include <stdio.h>
 
